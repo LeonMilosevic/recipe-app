@@ -1,0 +1,37 @@
+.home-inspire {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  text-align: left;
+}
+
+.home-inspire_header {
+  font-size: 52px;
+  font-weight: 700;
+  margin: 20px 0;
+}
+.home-inspire_info {
+  margin-top: 50px;
+  color: lighten($text-color, 60%);
+  font-weight: 700;
+  line-height: 25px;
+}
+
+.home-inspire_button-group {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5%;
+}
+
+.home-btn_bg {
+  background-color: $secondary-color;
+}
+
+.home-btn {
+  padding: 4%;
+  border-radius: 30px;
+  font-size: 22px;
+  font-weight: 700;
+}

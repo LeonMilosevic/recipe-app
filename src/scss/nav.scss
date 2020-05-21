@@ -1,0 +1,37 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  height: 50px;
+  width: 100%;
+  background-color: $bg-color-darker;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-center-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-right: 5%;
+}
+.nav-link {
+  font-weight: 400;
+}
+
+.nav-link-left {
+  margin: 0 30px;
+  white-space: nowrap;
+}
+
+.nav-right-links {
+  margin-right: 4%;
+}
+
+.nav-link-right {
+  white-space: nowrap;
+  margin: 0 3%;
+}

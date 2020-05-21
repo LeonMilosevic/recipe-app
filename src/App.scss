@@ -1,0 +1,14 @@
+@import "./scss/variables.scss";
+@import "./scss/nav.scss";
+@import "./scss/global.scss";
+@import "./scss/home.scss";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: "Montserrat", sans-serif;
+}
