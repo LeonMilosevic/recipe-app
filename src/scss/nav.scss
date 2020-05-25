@@ -3,35 +3,23 @@
   top: 0;
   left: 0;
 
-  height: 50px;
+  height: 70px;
   width: 100%;
   background-color: $bg-color-darker;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-.nav-center-links {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  margin-right: 5%;
-}
-.nav-link {
-  font-weight: 400;
-}
-
-.nav-link-left {
-  margin: 0 30px;
-  white-space: nowrap;
-}
-
-.nav-right-links {
-  margin-right: 4%;
-}
-
-.nav-link-right {
-  white-space: nowrap;
-  margin: 0 3%;
+.empty-link.nav-link {
+  font-weight: 700;
+  margin: 0 5px;
+  padding: 15px;
+  border-radius: 30px;
+  &:hover {
+    transition: background-color 0.3s ease-in;
+    background-color: $text-color;
+    color: $bg-color-darker;
+  }
 }

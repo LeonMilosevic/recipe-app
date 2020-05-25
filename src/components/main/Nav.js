@@ -4,20 +4,41 @@ import { NavLink } from "react-router-dom";
 const Nav = () => {
   return (
     <nav className="nav">
-      <div className="nav-center-links">
-        <NavLink className="nav-link-left empty-link nav-link" to="/features">
+      <div>
+        <NavLink className="empty-link nav-link" to="/">
+          Home
+        </NavLink>
+      </div>
+      <div>
+        <NavLink
+          activeClassName="active-link"
+          className="empty-link nav-link"
+          to="/features"
+        >
           Features
         </NavLink>
-        <NavLink className="nav-link-left empty-link nav-link" to="/about">
+        <NavLink
+          activeClassName="active-link"
+          className="empty-link nav-link"
+          to="/about"
+        >
           About
         </NavLink>
       </div>
-      <div className="nav-right-links">
-        <NavLink className="nav-link-right empty-link nav-link" to="/register">
+      <div>
+        <NavLink
+          activeClassName="active-link"
+          className="empty-link nav-link"
+          to="/get-started"
+        >
           Get started
         </NavLink>
-        <NavLink className="nav-link-right empty-link nav-link" to="/login">
-          Login
+        <NavLink
+          activeClassName="active-link"
+          className="empty-link nav-link"
+          to="/login"
+        >
+          Log in
         </NavLink>
       </div>
     </nav>

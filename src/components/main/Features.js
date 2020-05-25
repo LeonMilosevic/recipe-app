@@ -1,11 +1,11 @@
 import React from "react";
 
-const About = () => {
+const Features = () => {
   return (
     <div className="container-fluid">
-      <div>This is about page</div>
+      <div>Features</div>
     </div>
   );
 };
 
-export default About;
+export default Features;

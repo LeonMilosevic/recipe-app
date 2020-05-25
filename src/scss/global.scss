@@ -24,3 +24,8 @@
     text-decoration: none;
   }
 }
+
+.nav-link.active-link {
+  background-color: $text-color;
+  color: $bg-color-darker;
+}
