@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import firebaseApp from "../utils/firebase";
+import { firebaseApp } from "../utils/firebase";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

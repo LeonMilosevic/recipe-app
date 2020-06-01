@@ -1,9 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// import components
+import Nav from "./Nav";
+// import images
+import panImage from "../../assets/pan.svg";
 
 const Home = (props) => {
   return (
     <div className="container-fluid">
+      <Nav />
       <div className="home-inspire">
         <div className="home-inspire_header">Create, Track</div>
         <div className="home-inspire_header">Cook!</div>
@@ -19,6 +24,9 @@ const Home = (props) => {
             Learn more
           </Link>
         </div>
+      </div>
+      <div className="home-image_container">
+        <img className="home-image" src={panImage} alt="pan_img" />
       </div>
     </div>
   );

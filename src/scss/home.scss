@@ -35,3 +35,14 @@
   font-size: 22px;
   font-weight: 700;
 }
+
+.home-image_container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(10%, -50%);
+}
+.home-image {
+  width: 550px;
+  height: 550px;
+}
