@@ -1,19 +1,21 @@
-import React, { useContext, useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
+import BackButton from "../../ui/BackButton";
 // import helpers
-import { googleRegister } from "../utils/googleSignin";
-import { firebaseApp } from "../utils/firebase";
-import { validateEmail } from "../utils/helpers";
+import { googleRegister } from "../../utils/googleSignin";
+import { firebaseApp } from "../../utils/firebase";
+import { validateEmail } from "../../utils/helpers";
+import { promptUserForPassword } from "./helpers";
 // import images
-import blueberry1 from "../../assets/blueberry_1.svg";
-import blueberry2 from "../../assets/blueberry_2.svg";
-import strawberry1 from "../../assets/strawberry_1.svg";
-import strawberry2 from "../../assets/strawberry_2.svg";
-import raspberry1 from "../../assets/raspberry_1.svg";
-import pinkCircle from "../../assets/pink_circle.svg";
-import FruitsBg from "../ui/FruitsBg";
-import GoogleBtn from "../ui/GoogleBtn";
+import blueberry1 from "../../../assets/blueberry_1.svg";
+import blueberry2 from "../../../assets/blueberry_2.svg";
+import strawberry1 from "../../../assets/strawberry_1.svg";
+import strawberry2 from "../../../assets/strawberry_2.svg";
+import raspberry1 from "../../../assets/raspberry_1.svg";
+import pinkCircle from "../../../assets/pink_circle.svg";
+import FruitsBg from "../../ui/FruitsBg";
+import GoogleBtn from "../../ui/GoogleBtn";
 
-const GetStarted = () => {
+const GetStarted = (props) => {
   // declaring states
   const [localEmailDisplay, setLocalEmailDisplay] = useState(false);
   const [localPasswordDisplay, setLocalPasswordDisplay] = useState(false);
@@ -22,13 +24,6 @@ const GetStarted = () => {
   const [error, setError] = useState("");
   // declare refs for gsap animations
   let inputRef = useRef(null);
-  let buttonNextRef = useRef(null);
-  // passing the function to google auth if the email exists in db already
-  const promptUserForPassword = () => (
-    <div className="reg-form">
-      <input type="password" name="password" onChange={handlePassword} />
-    </div>
-  );
   // showing and displaying label
   const handleLabelInput = (e) => {
     e.target.style.display = "none";
@@ -59,55 +54,51 @@ const GetStarted = () => {
     e.preventDefault();
     try {
       await firebaseApp.auth().createUserWithEmailAndPassword(email, password);
+      props.history.push("/dashboard");
     } catch (error) {
-      setError("That is not a valid email");
+      setError("Invalid. Please try again");
     }
   };
 
-  const displayLocalRegisterEmail = () => (
+  const displayLocalRegisterEmail = (bgColor) => (
     <div className="reg-form-input">
+      <h2 className="input-header">Email</h2>
       <input
+        style={{ backgroundColor: bgColor }}
         className="input-text"
         type="email"
         name="email"
         onChange={handleEmail}
         ref={(el) => (inputRef = el)}
       />
-      <label onClick={handleLabelInput} className="input-text_label">
-        Email
-      </label>
+      <label
+        style={{ backgroundColor: bgColor }}
+        onClick={handleLabelInput}
+        className="input-text_label"
+      ></label>
       {error && <div className="error-message">{error}</div>}
       {email && (
-        <div
-          onClick={handleForwardFromEmailToPassword}
-          ref={(el) => (buttonNextRef = el)}
-          className="input-btn"
-        >
+        <div onClick={handleForwardFromEmailToPassword} className="input-btn">
           Next
         </div>
       )}
     </div>
   );
 
-  const displayLocalRegisterPassword = () => (
+  const displayLocalRegisterPassword = (bgColor) => (
     <div className="reg-form-input">
+      <h2 className="input-header">Password</h2>
       <input
+        style={{ backgroundColor: bgColor }}
         className="input-text"
         type="text"
         name="password"
         onChange={handlePassword}
         value={password || ""}
       />
-      <label onClick={handleLabelInput} className="input-text_label">
-        Password
-      </label>
       {error && <div className="error-message">{error}</div>}
       {password && (
-        <div
-          onClick={handleSubmitRegisterUser}
-          ref={(el) => (buttonNextRef = el)}
-          className="input-btn"
-        >
+        <div onClick={handleSubmitRegisterUser} className="input-btn">
           Submit
         </div>
       )}
@@ -124,14 +115,18 @@ const GetStarted = () => {
           Sign up with email
         </button>
       </div>
-      <GoogleBtn googleRegister={() => googleRegister(promptUserForPassword)} />
+      <GoogleBtn
+        googleRegister={() =>
+          googleRegister(promptUserForPassword(handlePassword))
+        }
+      />
     </div>
   );
 
   return (
     <>
       <FruitsBg
-        bgColor="red"
+        bgColor="#ff6f5a"
         img1={blueberry1}
         img2={blueberry2}
         img3={strawberry1}
@@ -140,10 +135,11 @@ const GetStarted = () => {
         img6={pinkCircle}
       />
       {localEmailDisplay === true && localPasswordDisplay === true
-        ? displayLocalRegisterPassword()
+        ? displayLocalRegisterPassword("#ff6f5a")
         : localEmailDisplay === true
-        ? displayLocalRegisterEmail()
+        ? displayLocalRegisterEmail("#ff6f5a")
         : displayRegisterButtons()}
+      <BackButton />
     </>
   );
 };

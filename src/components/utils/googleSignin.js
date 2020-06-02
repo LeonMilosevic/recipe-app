@@ -5,7 +5,7 @@ export const googleRegister = (promptUserForPassword) => {
     .auth()
     .signInWithPopup(googleProvider)
     .then((result) => {
-      const token = result.credential.accessToken;
+      // sign user later
       const user = result.user;
       console.log(user);
     })
