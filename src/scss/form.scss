@@ -1,0 +1,42 @@
+.form-fullscreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+}
+
+.form-header {
+  font-size: 32px;
+  font-weight: 700;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: $bg-color;
+}
+
+.form-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-checkbox-label {
+  font-weight: 700;
+  color: $bg-color;
+  margin: 5px 0;
+}
+
+input[type="checkbox"]:checked + span:not(.lever)::before {
+  border: 2px solid transparent;
+  border-bottom: 2px solid $bg-color;
+  border-right: 2px solid $bg-color;
+  background: transparent;
+}
+
+input[type="checkbox"] + span:not(.lever):before {
+  border: 2px solid white;
+}

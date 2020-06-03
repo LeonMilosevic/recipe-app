@@ -9,11 +9,14 @@ import Login from "../main/auth/Login";
 import Signout from "../main/auth/Signout";
 import Features from "../main/Features";
 import Dashboard from "../main/user/Dashboard";
+import { UserProvider } from "../context/user/UserContext";
 
 const Routes = () => {
   return (
     <Switch>
-      <PrivateRoute exact path="/dashboard" component={Dashboard} />
+      <UserProvider>
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+      </UserProvider>
       <PrivateRoute exact path="/signout" component={Signout} />
       <OpenRoute exact path={"/"} component={Home} />
       <OpenRoute exact path={"/register"} component={GetStarted} />
