@@ -108,7 +108,7 @@ const Login = (props) => {
       <div>
         <button
           style={{ backgroundColor: bgColor, transform: "translate(-5%, 0)" }}
-          className="btn btn-custom marginX-m"
+          className="my-btn btn-custom marginX-m"
           onClick={() => setLocalEmailDisplay(true)}
         >
           Sign in

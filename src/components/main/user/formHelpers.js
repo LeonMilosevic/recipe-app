@@ -1,6 +1,6 @@
 import React from "react";
 
-export const checkboxDiet = (onChangeFunc) => {
+export const checkboxDiet = (onChangeFunc, checked, handleClickChangeForm) => {
   return (
     <>
       <div>
@@ -10,6 +10,7 @@ export const checkboxDiet = (onChangeFunc) => {
             type="checkbox"
             name="balanced"
             value="balanced"
+            checked={checked.balanced}
           />
           <span className="form-checkbox-label">Balanced</span>
         </label>
@@ -19,8 +20,9 @@ export const checkboxDiet = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="high-protein"
+            name="highProtein"
             value="high-protein"
+            checked={checked.highProtein}
           />
           <span className="form-checkbox-label">High-protein</span>
         </label>
@@ -30,8 +32,9 @@ export const checkboxDiet = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="high-fiber"
+            name="highFiber"
             value="high-fiber"
+            checked={checked.highFiber}
           />
           <span className="form-checkbox-label">High-fiber</span>
         </label>
@@ -41,8 +44,9 @@ export const checkboxDiet = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="low-fat"
+            name="lowFat"
             value="low-fat"
+            checked={checked.lowFat}
           />
           <span className="form-checkbox-label">Low-fat</span>
         </label>
@@ -52,8 +56,9 @@ export const checkboxDiet = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="low-carb"
+            name="lowCarb"
             value="low-carb"
+            checked={checked.lowCarb}
           />
           <span className="form-checkbox-label">Low-carb</span>
         </label>
@@ -63,8 +68,9 @@ export const checkboxDiet = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="low-sodium"
+            name="lowSodium"
             value="low-sodium"
+            checked={checked.lowSodium}
           />
           <span className="form-checkbox-label">Low-sodium</span>
         </label>
@@ -74,17 +80,23 @@ export const checkboxDiet = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="no-diet"
+            name="noDiet"
             value="no-diet"
+            checked={checked.noDiet}
           />
           <span className="form-checkbox-label">No diet</span>
         </label>
       </div>
+      <button onClick={handleClickChangeForm}>Next</button>
     </>
   );
 };
 
-export const checkboxHealth = (onChangeFunc) => {
+export const checkboxHealth = (
+  onChangeFunc,
+  checked,
+  handleClickChangeForm
+) => {
   return (
     <>
       <div>
@@ -92,8 +104,9 @@ export const checkboxHealth = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="alchohol-free"
+            name="alchoholFree"
             value="alchohol-free"
+            checked={checked.alchoholFree}
           />
           <span className="form-checkbox-label">Alchohol-free</span>
         </label>
@@ -103,8 +116,9 @@ export const checkboxHealth = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="dairy-free"
+            name="dairyFree"
             value="dairy-free"
+            checked={checked.dairyFree}
           />
           <span className="form-checkbox-label">Dairy-free</span>
         </label>
@@ -116,6 +130,7 @@ export const checkboxHealth = (onChangeFunc) => {
             type="checkbox"
             name="keto"
             value="keto"
+            checked={checked.keto}
           />
           <span className="form-checkbox-label">Keto</span>
         </label>
@@ -125,8 +140,9 @@ export const checkboxHealth = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="sugar-free"
+            name="sugarFree"
             value="sugar-free"
+            checked={checked.sugarFree}
           />
           <span className="form-checkbox-label">Sugar-free</span>
         </label>
@@ -136,8 +152,9 @@ export const checkboxHealth = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="peanuts-free"
+            name="peanutsFree"
             value="peanuts-free"
+            checked={checked.peanutsFree}
           />
           <span className="form-checkbox-label">Peanuts-free</span>
         </label>
@@ -149,6 +166,7 @@ export const checkboxHealth = (onChangeFunc) => {
             type="checkbox"
             name="vegetarian"
             value="vegetarian"
+            checked={checked.vegetarian}
           />
           <span className="form-checkbox-label">Vegetarian</span>
         </label>
@@ -160,6 +178,7 @@ export const checkboxHealth = (onChangeFunc) => {
             type="checkbox"
             name="vegan"
             value="vegan"
+            checked={checked.vegan}
           />
           <span className="form-checkbox-label">Vegan</span>
         </label>
@@ -169,17 +188,23 @@ export const checkboxHealth = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="no-health"
+            name="noHealth"
             value="no-health"
+            checked={checked.noHealth}
           />
           <span className="form-checkbox-label">No Alergies</span>
         </label>
       </div>
+      <button onClick={handleClickChangeForm}>Next</button>
     </>
   );
 };
 
-export const checkboxMealType = (onChangeFunc) => {
+export const checkboxMealType = (
+  onChangeFunc,
+  checked,
+  handleClickChangeForm
+) => {
   return (
     <>
       <div>
@@ -189,6 +214,7 @@ export const checkboxMealType = (onChangeFunc) => {
             type="checkbox"
             name="breakfast"
             value="breakfast"
+            checked={checked.breakfast}
           />
           <span className="form-checkbox-label">Breakfast</span>
         </label>
@@ -200,6 +226,7 @@ export const checkboxMealType = (onChangeFunc) => {
             type="checkbox"
             name="lunch"
             value="lunch"
+            checked={checked.lunch}
           />
           <span className="form-checkbox-label">Lunch</span>
         </label>
@@ -211,15 +238,21 @@ export const checkboxMealType = (onChangeFunc) => {
             type="checkbox"
             name="dinner"
             value="dinner"
+            checked={checked.dinner}
           />
           <span className="form-checkbox-label">Dinner</span>
         </label>
       </div>
+      <button onClick={handleClickChangeForm}>Next</button>
     </>
   );
 };
 
-export const checkboxDishType = (onChangeFunc) => {
+export const checkboxDishType = (
+  onChangeFunc,
+  checked,
+  handleClickSubmitForm
+) => {
   return (
     <>
       <div>
@@ -229,6 +262,7 @@ export const checkboxDishType = (onChangeFunc) => {
             type="checkbox"
             name="souces"
             value="souces"
+            checked={checked.souces}
           />
           <span className="form-checkbox-label">Souces</span>
         </label>
@@ -240,6 +274,7 @@ export const checkboxDishType = (onChangeFunc) => {
             type="checkbox"
             name="desserts"
             value="desserts"
+            checked={checked.desserts}
           />
           <span className="form-checkbox-label">Dessert</span>
         </label>
@@ -249,8 +284,9 @@ export const checkboxDishType = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="Main course"
+            name="mainCourse"
             value="Main course"
+            checked={checked.mainCourse}
           />
           <span className="form-checkbox-label">Main course</span>
         </label>
@@ -260,8 +296,9 @@ export const checkboxDishType = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="Sandwiches"
+            name="sandwiches"
             value="Sandwiches"
+            checked={checked.sandwiches}
           />
           <span className="form-checkbox-label">Sandwiches</span>
         </label>
@@ -271,12 +308,14 @@ export const checkboxDishType = (onChangeFunc) => {
           <input
             onChange={onChangeFunc}
             type="checkbox"
-            name="Soup"
+            name="soup"
             value="Soup"
+            checked={checked.soup}
           />
           <span className="form-checkbox-label">Soups</span>
         </label>
       </div>
+      <button onClick={handleClickSubmitForm}>submit</button>
     </>
   );
 };

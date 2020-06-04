@@ -5,7 +5,7 @@ const GoogleBtn = (props) => {
   return (
     <div>
       <button
-        className="btn marginX-m btn-google"
+        className="my-btn marginX-m btn-google"
         onClick={props.googleRegister}
       >
         <span>

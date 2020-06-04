@@ -109,7 +109,7 @@ const GetStarted = (props) => {
     <div className="reg-form">
       <div>
         <button
-          className="btn btn-custom marginX-m"
+          className="my-btn btn-custom marginX-m"
           onClick={() => setLocalEmailDisplay(true)}
         >
           Sign up with email
