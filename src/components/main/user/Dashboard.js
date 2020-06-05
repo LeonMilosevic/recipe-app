@@ -1,13 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 // import helpers
 import { AuthContext } from "../../context/auth/AuthContext";
-// import Axios from "axios";
+import Axios from "axios";
 import { firebaseApp } from "../../utils/firebase";
+// import components
 import FormDisplay from "./FormDisplay";
 import Feed from "./Feed";
 const Dashboard = () => {
   const { currentUser } = useContext(AuthContext);
   const [userDataPreferences, setUserDataPreferences] = useState(null);
+  const [userFoodData, setUserFoodData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -21,30 +23,46 @@ const Dashboard = () => {
           setUserDataPreferences(null);
           setLoading(false);
         } else {
+          // assign preferences of the meal from db
           const userPreferences = doc.data().userPreferences;
+          setUserDataPreferences(userPreferences);
+          // extract the strings from preferences arrays and combine them for an api call
+          let healthCombined = "";
+          let dietCombined = "";
+          let health = userPreferences.health;
+          let diet = userPreferences.diet;
 
-          setLoading(false);
+          health.forEach((healthItem) => {
+            healthCombined += `&health=${healthItem}`;
+          });
+          diet.forEach((dietItem) => {
+            dietCombined += `&diet=${dietItem}`;
+          });
+
+          const url = `https://api.edamam.com/search?q=${userPreferences.main}&app_id=${process.env.REACT_APP_FOOD_APP_ID}&app_key=${process.env.REACT_APP_FOOD_APP_API_KEY}&from=0&to=5${healthCombined}${dietCombined}`;
+
+          Axios.get(url)
+            .then((response) => {
+              setUserFoodData(response.data.hits);
+              setLoading(false);
+            })
+            .catch((error) => {
+              console.log(error);
+              setLoading(false);
+            });
         }
       })
       .catch((error) => {
         console.log(error);
         setLoading(false);
       });
-    // const APP_ID = process.env.REACT_APP_FOOD_APP_ID;
-    // const APP_KEY = process.env.REACT_APP_FOOD_APP_API_KEY;
-    // const url = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
-    // const getData = async () => {
-    //   const results = await Axios.get(url);
-    //   console.log(results);
-    // };
-    // getData();
   }, [currentUser.uid]);
   return (
     <>
       {loading ? (
         <div>Loading</div>
       ) : userDataPreferences !== null ? (
-        <Feed />
+        <Feed userFoodData={userFoodData} />
       ) : (
         <FormDisplay />
       )}

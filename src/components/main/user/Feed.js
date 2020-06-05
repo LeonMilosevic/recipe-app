@@ -4,6 +4,9 @@ import { firebaseApp } from "../../utils/firebase";
 const Feed = (props) => {
   return (
     <div>
+      {props.userFoodData.map((recipe, i) => (
+        <div key={i}>{recipe.recipe.label}</div>
+      ))}
       <div>
         Hello from protected dashboard
         <button

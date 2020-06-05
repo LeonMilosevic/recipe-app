@@ -5,10 +5,9 @@ export const UserContext = React.createContext();
 
 export const UserProvider = ({ children }) => {
   const [userPreferences, setUserPreferences] = useState({
+    main: "",
     diet: [],
     health: [],
-    mealType: [],
-    dishType: [],
   });
 
   useEffect(() => {}, []);
