@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 // import helpers
-import { UserContext } from "../../context/user/UserContext";
 import { AuthContext } from "../../context/auth/AuthContext";
 import { checkboxDiet, checkboxHealth, formMain } from "./formHelpers";
 // import components
@@ -29,18 +28,22 @@ const FormDisplay = () => {
       vegan: false,
     },
   });
+  const [userPreferencesTemp, setUserPreferencesTemp] = useState({
+    main: "",
+    diet: [],
+    health: [],
+  });
   // get context to update values for preferences
-  const { userPreferences, setUserPreferences } = useContext(UserContext);
   const { currentUser } = useContext(AuthContext);
   // declare empty arrays to change states of forms
-  let tempArrDiet = [...userPreferences.diet];
-  let tempArrHealth = [...userPreferences.health];
+  let tempArrDiet = [...userPreferencesTemp.diet];
+  let tempArrHealth = [...userPreferencesTemp.health];
   // declare empty arrays to change states of checkbox values
   let tempCheckboxDiet = { ...checkedValues.diet };
   let tempCheckboxHealth = { ...checkedValues.health };
   // functions to change and update state
   const handleClickMain = (e) => {
-    setUserPreferences({ ...userPreferences, main: e.target.alt });
+    setUserPreferencesTemp({ ...userPreferencesTemp, main: e.target.alt });
     setDisplayCurrentForm({
       ...displayCurrentForm,
       main: false,
@@ -62,7 +65,7 @@ const FormDisplay = () => {
         [e.target.name]: e.target.checked,
       };
     }
-    setUserPreferences({ ...userPreferences, diet: tempArrDiet });
+    setUserPreferencesTemp({ ...userPreferencesTemp, diet: tempArrDiet });
     setCheckedValues({ ...checkedValues, diet: tempCheckboxDiet });
   };
 
@@ -82,7 +85,7 @@ const FormDisplay = () => {
         [e.target.name]: e.target.checked,
       };
     }
-    setUserPreferences({ ...userPreferences, health: tempArrHealth });
+    setUserPreferencesTemp({ ...userPreferencesTemp, health: tempArrHealth });
     setCheckedValues({ ...checkedValues, health: tempCheckboxHealth });
   };
 
@@ -99,9 +102,12 @@ const FormDisplay = () => {
       ...displayCurrentForm,
       health: false,
     });
-    firebaseApp.firestore().collection("preferences").doc(currentUser.uid).set({
-      userPreferences,
-    });
+    firebaseApp.firestore().collection("preferences").doc(currentUser.uid).set(
+      {
+        userPreferences: userPreferencesTemp,
+      },
+      { merge: false }
+    );
   };
 
   return (

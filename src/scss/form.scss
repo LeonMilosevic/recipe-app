@@ -4,14 +4,14 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: red;
+  background-color: $text-color;
 }
 
 .form-header {
   font-size: 32px;
   font-weight: 700;
   position: absolute;
-  top: 20%;
+  top: 5%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: $bg-color;
@@ -24,10 +24,38 @@
   transform: translate(-50%, -50%);
 }
 
+// form grid
+.form-main-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 10px;
+  row-gap: 15px;
+}
+.form-main-image-div {
+  overflow: hidden;
+  height: 150px;
+  width: 200px;
+}
+.form-main-image {
+  height: 150px;
+  width: 200px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .form-checkbox-label {
   font-weight: 700;
   color: $bg-color;
   margin: 5px 0;
+}
+
+.btn-margin {
+  margin: 30px 0;
+}
+
+.input-margin-bottom {
+  margin-bottom: 50px;
 }
 
 input[type="checkbox"]:checked + span:not(.lever)::before {

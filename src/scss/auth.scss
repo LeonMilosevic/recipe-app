@@ -13,3 +13,25 @@
   transform: translate(-52%, -50%);
   text-align: center;
 }
+
+// signout
+
+.signout-header {
+  font-size: 38px;
+  font-weight: 600;
+  color: $secondary-color;
+}
+.signout-subheader {
+  font-size: 32px;
+  font-weight: 700;
+  color: $text-color-secondary;
+}
+
+.signout-link {
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  & > a {
+    color: $text-color;
+  }
+}

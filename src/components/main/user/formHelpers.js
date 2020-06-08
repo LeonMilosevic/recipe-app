@@ -13,38 +13,48 @@ import dessert from "../../../assets/dessert.jpg";
 
 export const formMain = (onClickFunc) => {
   return (
-    <>
+    <div className="form-main-grid">
       <div className="form-main-image-div" onClick={onClickFunc}>
-        <img className="form-main-image" src={chicken} alt="chicken" />
+        <img className="form-main-image" src={chicken} alt="chicken" />\
+        <span>Chicken</span>
       </div>
       <div className="form-main-image-div" onClick={onClickFunc}>
-        <img className="form-main-image" src={egg} alt="eggs" />
+        <img className="form-main-image" src={egg} alt="eggs" />\
+        <span>Eggs</span>
       </div>
       <div className="form-main-image-div" onClick={onClickFunc}>
-        <img className="form-main-image" src={pizza} alt="pizza" />
+        <img className="form-main-image" src={pizza} alt="pizza" />\
+        <span>Pizza</span>
       </div>
       <div className="form-main-image-div" onClick={onClickFunc}>
-        <img className="form-main-image" src={beef} alt="beef" />
+        <img className="form-main-image" src={beef} alt="beef" />\
+        <span>Beef</span>
       </div>
       <div className="form-main-image-div" onClick={onClickFunc}>
-        <img className="form-main-image" src={soup} alt="soup" />
+        <img className="form-main-image" src={soup} alt="soup" />\
+        <span>Soup</span>
       </div>
       <div className="form-main-image-div" onClick={onClickFunc}>
-        <img className="form-main-image" src={bread} alt="bread" />
+        <img className="form-main-image" src={bread} alt="bread" />\
+        <span>Bread</span>
       </div>
       <div className="form-main-image-div" onClick={onClickFunc}>
-        <img className="form-main-image" src={potato} alt="potatoes" />
+        <img className="form-main-image" src={potato} alt="potatoes" />\
+        <span>Potatos</span>
       </div>
       <div className="form-main-image-div" onClick={onClickFunc}>
-        <img className="form-main-image" src={pasta} alt="pasta" />
+        <img className="form-main-image" src={pasta} alt="pasta" />\
+        <span>Pasta</span>
       </div>
       <div className="form-main-image-div" onClick={onClickFunc}>
-        <img className="form-main-image" src={grain} alt="grains" />
+        <img className="form-main-image" src={grain} alt="grains" />\
+        <span>Grains</span>
       </div>
       <div className="form-main-image-div" onClick={onClickFunc}>
-        <img className="form-main-image" src={dessert} alt="desserts" />
+        <img className="form-main-image" src={dessert} alt="desserts" />\
+        <span>Deserts</span>
       </div>
-    </>
+    </div>
   );
 };
 
@@ -87,7 +97,7 @@ export const checkboxDiet = (onChangeFunc, checked, handleClickChangeForm) => {
           <span className="form-checkbox-label">Low-fat</span>
         </label>
       </div>
-      <div>
+      <div className="input-margin-bottom">
         <label>
           <input
             onChange={onChangeFunc}
@@ -99,7 +109,12 @@ export const checkboxDiet = (onChangeFunc, checked, handleClickChangeForm) => {
           <span className="form-checkbox-label">Low-carb</span>
         </label>
       </div>
-      <button onClick={handleClickChangeForm}>Next</button>
+      <button
+        className="my-btn btn-custom btn-margin"
+        onClick={handleClickChangeForm}
+      >
+        Next
+      </button>
     </>
   );
 };
@@ -143,7 +158,7 @@ export const checkboxHealth = (onChangeFunc, checked, handleClickSubmit) => {
           <span className="form-checkbox-label">Vegetarian</span>
         </label>
       </div>
-      <div>
+      <div className="input-margin-bottom">
         <label>
           <input
             onChange={onChangeFunc}
@@ -155,7 +170,12 @@ export const checkboxHealth = (onChangeFunc, checked, handleClickSubmit) => {
           <span className="form-checkbox-label">Vegan</span>
         </label>
       </div>
-      <button onClick={handleClickSubmit}>Submit</button>
+      <button
+        className="my-btn btn-custom btn-margin"
+        onClick={handleClickSubmit}
+      >
+        Submit
+      </button>
     </>
   );
 };
