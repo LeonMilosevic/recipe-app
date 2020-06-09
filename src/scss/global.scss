@@ -13,13 +13,13 @@
 }
 
 .my-btn {
-  padding: 15px 30px;
+  padding: 15px;
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
   -webkit-box-shadow: -1px 10px 22px -8px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -1px 10px 22px -8px rgba(0, 0, 0, 0.75);
-  box-shadow: -1px 10px 22px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 5px 10px -8px rgba(0, 0, 0, 0.75);
   transition: all 0.2s ease;
 }
 
@@ -33,71 +33,56 @@
   }
 }
 
-.btn-google {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  padding: 0px 10px;
-  background-color: #ffffff;
-  border: none;
-}
-.marginX-m {
-  margin: 15px 0;
-}
-
-.input-text {
-  width: 80%;
-  border: none;
-  border-radius: 30px;
-  height: 40px;
-  transition: all 0.6s ease;
-  text-indent: 20px;
-  font-size: 20px;
-  font-weight: 700;
-  color: $bg-color;
-  &:focus {
-    border: none;
-    border-color: transparent;
-    outline: none;
+.login-btn {
+  background-color: $blueberry-color;
+  &:hover {
+    background-color: darken($blueberry-color, 5%) !important;
   }
 }
 
-.input-text_label {
-  position: absolute;
-  left: 10%;
-  width: 80%;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-  height: 40px;
-}
-
-.input-header {
-  font-size: 32px;
-  font-weight: 900;
-  transform: translate(0, -150%);
-}
-
-.input-btn {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  font-size: 18px;
-  font-weight: 700;
-  padding: 10px 50px;
-  border-radius: 30px;
-  color: $text-color;
+.google-btn {
+  width: 184px;
+  height: 42px;
+  background-color: $google-blue;
+  border-radius: 2px;
   cursor: pointer;
   -webkit-box-shadow: -1px 10px 22px -8px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -1px 10px 22px -8px rgba(0, 0, 0, 0.75);
-  box-shadow: -1px 10px 22px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 5px 10px -8px rgba(0, 0, 0, 0.75);
   transition: all 0.2s ease;
+  .google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: $white;
+  }
+  .google-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .btn-text {
+    float: right;
+    margin: 11px 11px 0 0;
+    color: $white;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+  }
+  &:hover {
+    background: $button-active-blue;
+  }
+  &:active {
+    background: $button-active-blue;
+  }
 }
 
-.error-message {
-  font-size: 16px;
-  font-weight: 700;
-  color: #96150f;
+.marginX-m {
+  margin: 15px 0;
 }
 
 .fruit {
@@ -150,7 +135,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-49%, -50%);
     width: 350px;
     height: 350px;
   }

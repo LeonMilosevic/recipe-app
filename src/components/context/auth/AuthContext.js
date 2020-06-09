@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { firebaseApp } from "../../utils/firebase";
+import SpinnerDots from "../../ui/SpinnerDots";
 
 export const AuthContext = React.createContext();
 
@@ -18,7 +19,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   if (pending) {
-    return <>Loading...</>;
+    return <SpinnerDots />;
   }
 
   return (

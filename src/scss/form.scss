@@ -68,3 +68,44 @@ input[type="checkbox"]:checked + span:not(.lever)::before {
 input[type="checkbox"] + span:not(.lever):before {
   border: 2px solid white;
 }
+
+.input-text {
+  transition: all 0.6s ease !important;
+  text-indent: 20px !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: $bg-color;
+  &:focus {
+    border: none !important;
+    border-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.input-header {
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.input-btn {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px 50px;
+  border-radius: 30px;
+  color: $text-color;
+  cursor: pointer;
+  -webkit-box-shadow: -1px 10px 22px -8px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 10px 22px -8px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 10px 22px -8px rgba(0, 0, 0, 0.75);
+  transition: all 0.2s ease;
+}
+
+.error-message {
+  font-size: 16px;
+  font-weight: 700;
+  color: #96150f;
+}

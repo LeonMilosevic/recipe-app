@@ -4,7 +4,7 @@ import { UserContext } from "../../../context/user/UserContext";
 import M from "materialize-css/dist/js/materialize.min.js";
 import { firebaseApp } from "../../../utils/firebase";
 import { useHistory } from "react-router-dom";
-const Sidenav = () => {
+const Sidenav = (props) => {
   const { userPreferences, setUserPreferences } = useContext(UserContext);
   const history = useHistory();
   useEffect(() => {
@@ -14,6 +14,7 @@ const Sidenav = () => {
 
   const handleChangeFoodPreferences = (e) => {
     e.preventDefault();
+    props.setError("");
     setUserPreferences({ ...userPreferences, main: "" });
   };
   const handleChangeLogOut = (e) => {

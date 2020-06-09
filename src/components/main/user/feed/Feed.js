@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 // import components
 import Sidenav from "./Sidenav";
 import FoodCard from "./FoodCard";
+import SpinnerDots from "../../../ui/SpinnerDots";
+import SpinnerCircle from "../../../ui/SpinnerCircle";
 const Feed = (props) => {
   const [currentData, setCurrentData] = useState([]);
   const [currentDataDisplayNumber, setCurrentDataDisplayNumber] = useState(5);
@@ -43,16 +45,16 @@ const Feed = (props) => {
   return (
     <>
       {loading === true ? (
-        <div>Loading...</div>
+        <SpinnerDots />
       ) : (
         <div>
-          <Sidenav />
+          <Sidenav setError={props.setError} />
           <div className="container">
             {currentData.map((recipe, i) => {
               if (currentData.length === i + 1) {
                 return (
-                  <>
-                    <div className="feed-card" key={i}>
+                  <div key={i}>
+                    <div className="feed-card">
                       <FoodCard
                         ref={lastCardElementRef}
                         bgImage={recipe.recipe.image}
@@ -61,8 +63,8 @@ const Feed = (props) => {
                         recipeUrl={recipe.recipe.url}
                       />
                     </div>
-                    {refLoading && <h1>Loading ref...</h1>}
-                  </>
+                    {refLoading && <SpinnerCircle />}
+                  </div>
                 );
               } else {
                 return (

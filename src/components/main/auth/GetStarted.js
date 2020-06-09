@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import BackButton from "../../ui/BackButton";
 // import helpers
 import { googleRegister } from "../../utils/googleSignin";
@@ -22,13 +22,6 @@ const GetStarted = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  // declare refs for gsap animations
-  let inputRef = useRef(null);
-  // showing and displaying label
-  const handleLabelInput = (e) => {
-    e.target.style.display = "none";
-    inputRef.style.width = "100%";
-  };
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -69,13 +62,7 @@ const GetStarted = (props) => {
         type="email"
         name="email"
         onChange={handleEmail}
-        ref={(el) => (inputRef = el)}
       />
-      <label
-        style={{ backgroundColor: bgColor }}
-        onClick={handleLabelInput}
-        className="input-text_label"
-      ></label>
       {error && <div className="error-message">{error}</div>}
       {email && (
         <div onClick={handleForwardFromEmailToPassword} className="input-btn">

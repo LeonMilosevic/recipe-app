@@ -5,10 +5,12 @@ import Axios from "axios";
 // import components
 import FormDisplay from "./FormDisplay";
 import Feed from "./feed/Feed";
+import SpinnerDots from "../../ui/SpinnerDots";
+import ErrorFeed from "./feed/ErrorFeed";
 const Dashboard = () => {
   const [userFoodData, setUserFoodData] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [error, setError] = useState("");
   const { userPreferences } = useContext(UserContext);
 
   useEffect(() => {
@@ -25,24 +27,29 @@ const Dashboard = () => {
         dietCombined += `&diet=${dietItem}`;
       });
       const url = `https://api.edamam.com/search?q=${userPreferences.main}&app_id=${process.env.REACT_APP_FOOD_APP_ID}&app_key=${process.env.REACT_APP_FOOD_APP_API_KEY}&from=0&to=15${healthCombined}${dietCombined}`;
-      // Axios.get(url)
-      //   .then((response) => {
-      //     setUserFoodData(response.data.hits);
-      //     setLoading(false);
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //     setLoading(false);
-      //   });
+      Axios.get(url)
+        .then((response) => {
+          if (response.data.hits.length === 0) {
+            setError("There was no match for your food preferences");
+          }
+          setUserFoodData(response.data.hits);
+          setLoading(false);
+        })
+        .catch(() => {
+          setError("There was a problem with the API");
+          setLoading(false);
+        });
       setLoading(false);
     }
   }, [userPreferences]);
   return (
     <>
       {loading ? (
-        <div>Loading</div>
-      ) : userPreferences.main !== "" ? (
-        <Feed userFoodData={userFoodData} />
+        <SpinnerDots />
+      ) : userPreferences.main !== "" && error === "" ? (
+        <Feed setError={setError} userFoodData={userFoodData} />
+      ) : error !== "" ? (
+        <ErrorFeed error={error} />
       ) : (
         <FormDisplay />
       )}

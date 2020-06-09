@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 // import helpers
 import { firebaseApp } from "../../utils/firebase";
 import { googleRegister } from "../../utils/googleSignin";
@@ -20,13 +20,7 @@ const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  // declare refs for gsap animations
-  let inputRef = useRef(null);
-  // showing and displaying label
-  const handleLabelInput = (e) => {
-    e.target.style.display = "none";
-    inputRef.style.width = "100%";
-  };
+
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -62,18 +56,12 @@ const Login = (props) => {
     <div className="reg-form-input">
       <h2 className="input-header">Email</h2>
       <input
-        style={{ backgroundColor: bgColor }}
         className="input-text"
+        style={{ backgroundColor: bgColor }}
         type="email"
         name="email"
         onChange={handleEmail}
-        ref={(el) => (inputRef = el)}
       />
-      <label
-        style={{ backgroundColor: bgColor }}
-        onClick={handleLabelInput}
-        className="input-text_label"
-      ></label>
       {error && <div className="error-message">{error}</div>}
       {email && (
         <div onClick={handleForwardFromEmailToPassword} className="input-btn">
@@ -107,11 +95,11 @@ const Login = (props) => {
     <div className="reg-form">
       <div>
         <button
-          style={{ backgroundColor: bgColor, transform: "translate(-5%, 0)" }}
-          className="my-btn btn-custom marginX-m"
+          style={{ backgroundColor: bgColor }}
+          className="my-btn btn-custom marginX-m login-btn"
           onClick={() => setLocalEmailDisplay(true)}
         >
-          Sign in
+          Sign in with email
         </button>
       </div>
       <GoogleBtn

@@ -128,7 +128,7 @@ const FormDisplay = () => {
         />
       ) : displayCurrentForm.health === true ? (
         <Form
-          formHeader={"Any alergies?"}
+          formHeader={"Any health preferences?"}
           formBody={checkboxHealth(
             handleChangeCheckboxHealth,
             checkedValues.health,

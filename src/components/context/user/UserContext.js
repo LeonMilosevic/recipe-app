@@ -11,7 +11,6 @@ export const UserProvider = ({ children }) => {
     diet: [],
     health: [],
   });
-  const [error, setError] = useState("");
 
   useEffect(() => {
     if (currentUser !== null) {
@@ -23,7 +22,7 @@ export const UserProvider = ({ children }) => {
           if (doc.data() !== undefined) {
             setUserPreferences(doc.data().userPreferences);
           } else {
-            setError("there was a problem please try again");
+            console.log("there was a problem please try again");
           }
         });
     }

@@ -1,18 +1,20 @@
 import React from "react";
-import googleBtn from "../../assets/google_btn.svg";
 
 const GoogleBtn = (props) => {
   return (
     <div>
-      <button
-        className="my-btn marginX-m btn-google"
-        onClick={props.googleRegister}
-      >
-        <span>
-          <img src={googleBtn} alt="logo" />
-        </span>
-        <span>Sign up with google</span>
-      </button>
+      <div className="google-btn" onClick={props.googleRegister}>
+        <div className="google-icon-wrapper">
+          <img
+            className="google-icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+            alt="google_btn"
+          />
+        </div>
+        <p className="btn-text">
+          <b>Sign in with google</b>
+        </p>
+      </div>
     </div>
   );
 };
