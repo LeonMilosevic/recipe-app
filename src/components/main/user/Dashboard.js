@@ -24,7 +24,7 @@ const Dashboard = () => {
       diet.forEach((dietItem) => {
         dietCombined += `&diet=${dietItem}`;
       });
-      const url = `https://api.edamam.com/search?q=${userPreferences.main}&app_id=${process.env.REACT_APP_FOOD_APP_ID}&app_key=${process.env.REACT_APP_FOOD_APP_API_KEY}&from=0&to=5${healthCombined}${dietCombined}`;
+      const url = `https://api.edamam.com/search?q=${userPreferences.main}&app_id=${process.env.REACT_APP_FOOD_APP_ID}&app_key=${process.env.REACT_APP_FOOD_APP_API_KEY}&from=0&to=15${healthCombined}${dietCombined}`;
       // Axios.get(url)
       //   .then((response) => {
       //     setUserFoodData(response.data.hits);
