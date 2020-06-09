@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Nav = () => {
+const Nav = React.forwardRef((props, navRef) => {
   return (
-    <nav className="my-nav">
+    <nav ref={navRef} className="my-nav">
       <div>
         <NavLink className="empty-link nav-link" to="/">
           Home
@@ -13,6 +13,7 @@ const Nav = () => {
         <NavLink
           activeClassName="active-link"
           className="empty-link nav-link"
+          onClick={props.changeFromAnyPageToRegister}
           to="/register"
         >
           Get started
@@ -20,6 +21,7 @@ const Nav = () => {
         <NavLink
           activeClassName="active-link"
           className="empty-link nav-link"
+          onClick={props.changeFromAnyPageToLogin}
           to="/login"
         >
           Log in
@@ -27,6 +29,6 @@ const Nav = () => {
       </div>
     </nav>
   );
-};
+});
 
 export default Nav;
