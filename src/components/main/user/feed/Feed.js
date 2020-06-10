@@ -17,7 +17,6 @@ const Feed = (props) => {
   useEffect(() => {
     let feedCardElement = null;
     feedCardElement = document.querySelectorAll(".feed-card");
-    console.log(feedCardElement);
     dashboardSidenavAnimation(sideNavRef.current, feedCardElement);
   }, [sideNavRef]);
 

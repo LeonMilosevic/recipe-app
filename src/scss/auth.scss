@@ -13,6 +13,12 @@
   width: 20%;
   transform: translate(-50%, -80%);
   text-align: center;
+  @media (max-width: $screen-max-tablet) {
+    width: 30%;
+  }
+  @media (max-width: $screen-max-phone) {
+    width: 40%;
+  }
 }
 
 // signout

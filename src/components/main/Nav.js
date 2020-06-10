@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 const Nav = React.forwardRef((props, navRef) => {
   return (
     <nav ref={navRef} className="my-nav">
-      <div></div>
       <div>
         <NavLink
           activeClassName="active-link"

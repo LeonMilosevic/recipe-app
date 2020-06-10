@@ -21,6 +21,10 @@
   -moz-box-shadow: -1px 10px 22px -8px rgba(0, 0, 0, 0.75);
   box-shadow: -1px 5px 10px -8px rgba(0, 0, 0, 0.75);
   transition: all 0.2s ease;
+  @media (max-width: $screen-max-phone) {
+    padding: 10px;
+    font-size: 12px;
+  }
 }
 
 .btn-custom {
@@ -50,6 +54,9 @@
   -moz-box-shadow: -1px 10px 22px -8px rgba(0, 0, 0, 0.75);
   box-shadow: -1px 5px 10px -8px rgba(0, 0, 0, 0.75);
   transition: all 0.2s ease;
+  @media (max-width: $screen-max-phone) {
+    transform: scale(0.8);
+  }
   .google-icon-wrapper {
     position: absolute;
     margin-top: 1px;
@@ -93,6 +100,12 @@
     width: 80px;
     height: 80px;
     transform: scale(0);
+    @media (max-width: $screen-max-phone) {
+      top: 15%;
+      left: 15%;
+      width: 40px;
+      height: 40px;
+    }
   }
   &_2 {
     position: absolute;
@@ -101,6 +114,10 @@
     width: 80px;
     height: 80px;
     transform: scale(0);
+    @media (max-width: $screen-max-phone) {
+      width: 40px;
+      height: 40px;
+    }
   }
   &_3 {
     position: absolute;
@@ -109,6 +126,10 @@
     width: 80px;
     height: 80px;
     transform: scale(0);
+    @media (max-width: $screen-max-phone) {
+      width: 40px;
+      height: 40px;
+    }
   }
   &_4 {
     position: absolute;
@@ -117,6 +138,12 @@
     width: 80px;
     height: 80px;
     transform: scale(0);
+    @media (max-width: $screen-max-phone) {
+      width: 40px;
+      height: 40px;
+      top: 35%;
+      left: 10%;
+    }
   }
   &_5 {
     position: absolute;
@@ -125,6 +152,10 @@
     width: 80px;
     height: 80px;
     transform: scale(0);
+    @media (max-width: $screen-max-phone) {
+      width: 40px;
+      height: 40px;
+    }
   }
   &_6 {
     position: absolute;
@@ -134,6 +165,10 @@
     width: 350px;
     height: 350px;
     opacity: 0;
+    @media (max-width: $screen-max-phone) {
+      width: 250px;
+      height: 250px;
+    }
   }
 }
 

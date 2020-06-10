@@ -21,6 +21,9 @@ nav.dashboard-nav {
   margin: 30px 0;
   opacity: 0;
   transform: translate(0, 100%);
+  @media (max-width: $screen-max-phone) {
+    height: 115px;
+  }
 }
 .feed-card-image {
   width: 150px;
@@ -28,10 +31,17 @@ nav.dashboard-nav {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  @media (max-width: $screen-max-phone) {
+    height: 110px;
+    width: 110px;
+  }
 }
 
 .feed-card-text {
   text-align: right;
+  @media (max-width: $screen-max-phone) {
+    width: 70%;
+  }
 }
 
 .feed-card-link {

@@ -8,8 +8,11 @@
   background-color: $bg-color-darker;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+  @media (max-width: $screen-max-phone) {
+    justify-content: space-around;
+  }
 }
 
 .empty-link.nav-link {
