@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
+// import helpers
+import { dashboardSidenavAnimation } from "../../../ui/animationHelpers";
 // import components
 import Sidenav from "./Sidenav";
 import FoodCard from "./FoodCard";
@@ -10,6 +12,15 @@ const Feed = (props) => {
   const [loading, setLoading] = useState(true);
   const [refLoading, setRefLoading] = useState(false);
   const observer = useRef();
+  let sideNavRef = React.createRef(null);
+
+  useEffect(() => {
+    let feedCardElement = null;
+    feedCardElement = document.querySelectorAll(".feed-card");
+    console.log(feedCardElement);
+    dashboardSidenavAnimation(sideNavRef.current, feedCardElement);
+  }, [sideNavRef]);
+
   const lastCardElementRef = useCallback(
     (node) => {
       if (loading) return;
@@ -48,15 +59,14 @@ const Feed = (props) => {
         <SpinnerDots />
       ) : (
         <div>
-          <Sidenav setError={props.setError} />
+          <Sidenav ref={sideNavRef} setError={props.setError} />
           <div className="container">
             {currentData.map((recipe, i) => {
               if (currentData.length === i + 1) {
                 return (
                   <div key={i}>
-                    <div className="feed-card">
+                    <div ref={lastCardElementRef} className="feed-card">
                       <FoodCard
-                        ref={lastCardElementRef}
                         bgImage={recipe.recipe.image}
                         recipeLabel={recipe.recipe.label}
                         recipeCalories={recipe.recipe.calories}

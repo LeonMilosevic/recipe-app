@@ -48,3 +48,23 @@
   width: 550px;
   height: 550px;
 }
+
+.animation-cover-left {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: -100%;
+  background-color: $blueberry-color;
+  z-index: 5;
+}
+
+.animation-cover-top {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: -100%;
+  left: 0;
+  background-color: $secondary-color;
+  z-index: 5;
+}

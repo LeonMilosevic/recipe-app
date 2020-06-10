@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import BackButton from "../../ui/BackButton";
 // import helpers
 import { googleRegister } from "../../utils/googleSignin";
 import { firebaseApp } from "../../utils/firebase";
 import { validateEmail } from "../../utils/helpers";
 import { promptUserForPassword } from "./helpers";
+import { authFruitAnimationPage } from "../../ui/animationHelpers";
 // import images
 import blueberry1 from "../../../assets/blueberry_1.svg";
 import blueberry2 from "../../../assets/blueberry_2.svg";
@@ -22,6 +23,21 @@ const GetStarted = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  let registerFormRef = useRef(null);
+
+  useEffect(() => {
+    const fruitsElements = document.querySelectorAll(".stagger");
+    let fruitCircle = document.querySelector(".fruit_6");
+    let backButton = document.querySelector(".back-button");
+
+    authFruitAnimationPage(
+      fruitsElements,
+      fruitCircle,
+      registerFormRef,
+      backButton
+    );
+  }, []);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -93,7 +109,7 @@ const GetStarted = (props) => {
   );
 
   const displayRegisterButtons = () => (
-    <div className="reg-form">
+    <div ref={(el) => (registerFormRef = el)} className="reg-form">
       <div>
         <button
           className="my-btn btn-custom marginX-m"

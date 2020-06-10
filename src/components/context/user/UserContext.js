@@ -21,8 +21,6 @@ export const UserProvider = ({ children }) => {
         .onSnapshot((doc) => {
           if (doc.data() !== undefined) {
             setUserPreferences(doc.data().userPreferences);
-          } else {
-            console.log("there was a problem please try again");
           }
         });
     }

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 // import helpers
 import { firebaseApp } from "../../utils/firebase";
 import { googleRegister } from "../../utils/googleSignin";
 import { validateEmail } from "../../utils/helpers";
 import { promptUserForPassword } from "./helpers";
+import { authFruitAnimationPage } from "../../ui/animationHelpers";
 // import components
 import BackButton from "../../ui/BackButton";
 import FruitsBg from "../../ui/FruitsBg";
@@ -20,6 +21,21 @@ const Login = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  let registerFormRef = useRef(null);
+
+  useEffect(() => {
+    const fruitsElements = document.querySelectorAll(".stagger");
+    let fruitCircle = document.querySelector(".fruit_6");
+    let backButton = document.querySelector(".back-button");
+
+    authFruitAnimationPage(
+      fruitsElements,
+      fruitCircle,
+      registerFormRef,
+      backButton
+    );
+  }, []);
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -92,7 +108,7 @@ const Login = (props) => {
   );
 
   const displayRegisterButtons = (bgColor) => (
-    <div className="reg-form">
+    <div className="reg-form" ref={(el) => (registerFormRef = el)}>
       <div>
         <button
           style={{ backgroundColor: bgColor }}

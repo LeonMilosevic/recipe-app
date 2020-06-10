@@ -109,12 +109,11 @@ export const checkboxDiet = (onChangeFunc, checked, handleClickChangeForm) => {
           <span className="form-checkbox-label">Low-carb</span>
         </label>
       </div>
-      <button
-        className="my-btn btn-custom btn-margin"
-        onClick={handleClickChangeForm}
-      >
-        Next
-      </button>
+      <div className="form-button">
+        <button className="my-btn btn-custom" onClick={handleClickChangeForm}>
+          Next
+        </button>
+      </div>
     </>
   );
 };
@@ -170,12 +169,11 @@ export const checkboxHealth = (onChangeFunc, checked, handleClickSubmit) => {
           <span className="form-checkbox-label">Vegan</span>
         </label>
       </div>
-      <button
-        className="my-btn btn-custom btn-margin"
-        onClick={handleClickSubmit}
-      >
-        Submit
-      </button>
+      <div className="form-button">
+        <button className="my-btn btn-custom" onClick={handleClickSubmit}>
+          Submit
+        </button>
+      </div>
     </>
   );
 };

@@ -4,7 +4,7 @@ import { UserContext } from "../../../context/user/UserContext";
 import M from "materialize-css/dist/js/materialize.min.js";
 import { firebaseApp } from "../../../utils/firebase";
 import { useHistory } from "react-router-dom";
-const Sidenav = (props) => {
+const Sidenav = React.forwardRef((props, ref) => {
   const { userPreferences, setUserPreferences } = useContext(UserContext);
   const history = useHistory();
   useEffect(() => {
@@ -28,7 +28,7 @@ const Sidenav = (props) => {
   };
   return (
     <>
-      <nav className="dashboard-nav">
+      <nav ref={ref} className="dashboard-nav">
         <a href="!#" className="brand-logo center">
           Logo
         </a>
@@ -64,6 +64,6 @@ const Sidenav = (props) => {
       </ul>
     </>
   );
-};
+});
 
 export default Sidenav;

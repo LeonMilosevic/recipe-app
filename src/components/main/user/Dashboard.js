@@ -39,8 +39,8 @@ const Dashboard = () => {
           setError("There was a problem with the API");
           setLoading(false);
         });
-      setLoading(false);
     }
+    setLoading(false);
   }, [userPreferences]);
   return (
     <>

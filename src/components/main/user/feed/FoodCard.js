@@ -1,10 +1,9 @@
 import React from "react";
 
-const FoodCard = React.forwardRef((props, ref) => {
+const FoodCard = (props) => {
   return (
     <>
       <div
-        ref={ref}
         style={{ backgroundImage: `url(${props.bgImage})` }}
         className="feed-card-image"
       ></div>
@@ -24,6 +23,6 @@ const FoodCard = React.forwardRef((props, ref) => {
       </div>
     </>
   );
-});
+};
 
 export default FoodCard;

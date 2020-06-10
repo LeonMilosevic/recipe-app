@@ -1,6 +1,9 @@
 nav.dashboard-nav {
   background-color: $secondary-color;
+  position: absolute;
   top: 0;
+  left: 0;
+  transform: translate(0, -100%);
 }
 // sidenav
 .sidenav li > a.sidenav-li-links {
@@ -16,6 +19,8 @@ nav.dashboard-nav {
   align-items: center;
   justify-content: space-between;
   margin: 30px 0;
+  opacity: 0;
+  transform: translate(0, 100%);
 }
 .feed-card-image {
   width: 150px;

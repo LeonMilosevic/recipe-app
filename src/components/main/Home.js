@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import { Link, useHistory } from "react-router-dom";
 // import components
 import Nav from "./Nav";
+import { insertPageX, insertPageY } from "../ui/animationHelpers";
 // import images
 import panImage from "../../assets/pan.svg";
 
@@ -11,22 +12,37 @@ const Home = () => {
   const history = useHistory();
   let homeInspireRef = useRef(null);
   let homeImageRef = useRef(null);
+  let animationCoverLeftRef = useRef(null);
+  let animationCoverTopRef = useRef(null);
   const navRef = React.createRef(null);
   const tl = new gsap.timeline();
   const changeFromHomeToAny = (destination) => (e) => {
     e.preventDefault();
     tl.reverse();
+    if (destination === "/login") {
+      insertPageX(animationCoverLeftRef);
+    } else {
+      insertPageY(animationCoverTopRef);
+    }
     setTimeout(() => {
       history.push(destination);
-    }, 1600);
+    }, 2200);
   };
   useEffect(() => {
-    tl.from(navRef.current, { yPercent: -100, duration: 1 });
+    tl.from(navRef.current, { yPercent: -100, duration: 0.5 });
     tl.to(homeInspireRef, { opacity: 1, duration: 0.5 });
-    tl.to(homeImageRef, { opacity: 1, duration: 0.5 }, 1);
+    tl.to(homeImageRef, { opacity: 1, duration: 0.5 }, 0.5);
   }, [tl, navRef]);
   return (
     <div className="container-fluid">
+      <div
+        ref={(el) => (animationCoverLeftRef = el)}
+        className="animation-cover-left"
+      ></div>
+      <div
+        ref={(el) => (animationCoverTopRef = el)}
+        className="animation-cover-top"
+      ></div>
       <Nav
         ref={navRef}
         changeFromAnyPageToRegister={changeFromHomeToAny("/register")}
